@@ -1,0 +1,42 @@
+# tasks file for roles/linux_baseline_hardening
+---
+- name: Ensure system is updated
+  yum:
+    name: '*'
+    state: latest
+  when: ansible_os_family == "RedHat"
+
+- name: Ensure useful packages are installed
+  package:
+    name: "{{ baseline_packages }}"
+    state: present
+
+- name: Create secure admin user
+  user:
+    name: "{{ admin_user }}"
+    shell: /bin/bash
+    groups: wheel
+    create_home: yes
+
+- name: Add SSH key for admin user
+  authorized_key:
+    user: "{{ admin_user }}"
+    key: "{{ admin_pub_key }}"
+
+- name: Disable root SSH login
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^PermitRootLogin'
+    line: 'PermitRootLogin no'
+  notify: Restart ssh
+
+- name: Enable firewalld and allow SSH
+  firewalld:
+    service: ssh
+    state: enabled
+    permanent: true
+    immediate: true
+
+- name: Set system timezone
+  timezone:
+    name: "{{ server_timezone }}"

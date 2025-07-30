@@ -1,0 +1,7 @@
+# handlers file for roles/linux_baseline_hardening
+---
+- name: Restart ssh
+  service:
+    name: sshd
+    state: restarted
+

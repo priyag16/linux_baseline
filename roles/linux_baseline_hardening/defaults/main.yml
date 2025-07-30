@@ -1,0 +1,12 @@
+# defaults file for roles/linux_baseline_hardening
+---
+admin_user: devopsadmin
+admin_pub_key: "ssh-rsa AAAA...yourkeyhere"
+baseline_packages:
+  - vim
+  - wget
+  - git
+  - curl
+  - net-tools
+server_timezone: Asia/Kolkata
+

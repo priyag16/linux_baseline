@@ -1,0 +1,7 @@
+---
+- name: Apply Linux Baseline Hardening Role
+  hosts: all
+  become: yes
+  roles:
+    - priyagoel.linux_baseline.linux_baseline_hardening
+
