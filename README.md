@@ -17,6 +17,7 @@ Supports idempotent and repeatable deployment across environments
 
 🚀 Quick Start
 Install the Collection:
+
 bash
 Copy
 Edit
@@ -45,7 +46,9 @@ Audit prep and reducing manual effort
 
 🔧 Technologies Used
 Ansible
+
 YAML
+
 RHEL-based systems
 
 📄 License
@@ -58,3 +61,7 @@ Pull requests and feedback are welcome! Feel free to fork and customize for your
 Priya Goel
 📌 https://github.com/priyag16
 💬 Linux Admin | Automation Enthusiast | Azure Fundamentals
+
+🏷️ Tags
+#ansible #linux #rhel #automation #hardening
+#configuration-management #devops #security #infrastructure-as-code
